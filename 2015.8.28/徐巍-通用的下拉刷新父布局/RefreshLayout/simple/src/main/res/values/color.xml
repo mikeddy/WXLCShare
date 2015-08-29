@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg_feature_header">#f5f5f5</color>
+
+    <!-- 下拉刷新 -->
+    <color name="bg_pulldownrefresh_out">#eaeaea</color>
+    <color name="bg_pulldownrefresh_focus">#12c33b</color>
+    <color name="bg_pulldownrefresh_other">#bdbdbd</color>
+
+</resources>

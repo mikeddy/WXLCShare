@@ -1,0 +1,126 @@
+=========================================
+******************************************
+layout布局文件命名:
+******************************************
+
+activity_login.xml  (Activity)
+item_moneyfund.xml  (Adapter内每个item)
+fragment_investmentp2p.xml (Fragment)
+view_circleimg.xml  (自定义View)
+
+=========================================
+
+
+
+
+=========================================
+******************************************
+图片,Selector,自定义Drawable
+******************************************
+
+图片:
+about_headico.png     (一般Activity,Fragment中使用到的图片)
+about_item_bg.png     (adapter内每个item的背景)
+pb_helpcenter.png     (公用图片,帮助中心)
+
+Selector:
+selector_about_btnbg.xml         (选择器)
+selector_about_normal_btnbg.xml  (正常情况下的图片)
+selector_about_sel_btnbg.xml     (选中情况下的图片)
+
+自定义Drawable:
+draw_messagecountbg.xml
+
+=========================================
+
+
+
+
+=========================================
+******************************************
+布局XML文件中,控件ID命名
+******************************************
+
+---参考start
+
+TextView:tv_xxx
+ListView:lv_xxx
+GridView:gv_xxx
+LinearLayout:lin_xxx
+RelativeLayout:Rela_xxx
+FrameLayout:frame_xxx
+EditTextView:edit_xxx
+ViewPager:vp_xxx
+Button:btn_xxx
+ImageView:img_xxx
+ImageButton:imgbtn_xxx
+ScrollView:sv_xxx
+
+--参考end
+
+android:id"@+id/about_tv_versionname"   (归属页面_控件缩写_控件名称)
+android:id"@+id/tv_versionname"         (控件缩写_控件名称)
+android:id"@+id/edit_email"             (控件缩写_控件名称)
+
+=========================================
+
+
+
+=========================================
+******************************************
+Color和String的命名
+******************************************
+
+Color:
+
+ui_gray1        (通用灰色,部分版本)
+ui_red1         (通用红色,部分版本)
+ui_320_red1
+ui_320_green1
+
+String:
+stock_title         (特殊模块,要加前缀)
+withdrawalstitle    (通用的可以直接写名称)
+
+=========================================
+
+
+=========================================
+******************************************
+Java代码相关:
+类名,成员变量,局部变量,方法名称,特殊类,常量
+******************************************
+
+类名:
+AboutActivity
+LoginActivity
+CommonUtil
+WithdrawalsVo
+
+
+成员变量:
+mMoneyRange  ----- (普通对象)
+tv_xxx    -------- (控件)
+versionTV -------- (控件)
+mTVversion ------- (控件)
+mIntMoney  ------- (值类型)
+mStrTitle  ------- (系统引用类型)
+mFloatInvestMoney -(值类型)
+
+局部变量(以小写t开头):
+tStrMoney
+tIntAgeRange
+
+
+方法名称(参考,参数以param_类型_名称 来命名):
+public void callPhone(String paramStrPhoneNum)    ----打电话
+public void formatMoney(String paramStrMoney,boolean paramBoolNeedSplit) ---格式化金额
+
+
+常量(参考Constant.java里面的命名方式):
+URL_xxxx
+KEY_xxxx
+PATH_xxx
+
+=========================================
+
