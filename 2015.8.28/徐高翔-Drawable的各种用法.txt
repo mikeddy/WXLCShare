@@ -1,3 +1,168 @@
 Drawable的各种用法:
 下载下来之后点击Drawable.xml深入研究的按钮即可
 https://github.com/mikeddy/meProjects
+
+
+
+level-list
+layer-list
+inset
+animation-list
+animated-rotate
+bitmap
+selector
+transition
+clip
+scale
+shape
+color
+rotate
+
+
+
+level-list:  多种状态的drawable
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:maxLevel="0" android:drawable="@drawable/battery_0" />
+    <item android:maxLevel="1" android:drawable="@drawable/battery_1" />
+    <item android:maxLevel="2" android:drawable="@drawable/battery_2" />
+    <item android:maxLevel="3" android:drawable="@drawable/battery_3" />
+    <item android:maxLevel="4" android:drawable="@drawable/battery_4" />
+</level-list>
+
+用法:
+imageview.getDrawable().setImageLevel(1);
+
+场景:
+某一个按钮,对应不同的状态出现不同的颜色.
+
+
+layer-list: 叠加层drawable
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+      <bitmap android:src="@drawable/android_red"
+        android:gravity="center" />
+    </item>
+    <item android:top="10dp" android:left="10dp">
+      <bitmap android:src="@drawable/android_green"
+        android:gravity="center" />
+    </item>
+    <item android:top="20dp" android:left="20dp">
+      <bitmap android:src="@drawable/android_blue"
+        android:gravity="center" />
+    </item>
+</layer-list>
+
+场景:
+
+
+inset: 设置间距的drawable
+<inset xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:drawable="@drawable/image4"
+    android:insetLeft="50dp"
+    android:insetRight="50dp"
+    android:insetTop="20dp"
+    android:insetBottom="20dp">
+
+
+animation-list:动画帧数集合drawable
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false" >
+    <item android:drawable="@drawable/wifi_01" android:duration="500"></item>
+    <item android:drawable="@drawable/wifi_02" android:duration="500"></item>
+    <item android:drawable="@drawable/wifi_03" android:duration="500"></item
+</animation-list>
+
+用法:
+img_wifi.setImageResource(R.drawable.animation1);  
+animDrawable = (AnimationDrawable) img_wifi.getDrawable();  
+animDrawable.start(); 
+场景:
+
+
+animation-rotate:旋转动画
+<?xml version="1.0" encoding="utf-8"?>
+<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:drawable="@drawable/ic_launcher"
+                 android:pivotX="50%"
+                 android:pivotY="50%"/>
+
+用法:
+控件直接设置背景
+
+bitmap:图片
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/ic_launcher"
+        android:tileMode="repeat"/>
+
+selector:选择器:
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/setting_invest_button_sel" android:state_pressed="true"/> <!-- pressed -->
+    <item android:drawable="@drawable/setting_invest_button_sel" android:state_focused="true"/> <!-- focused -->
+    <item android:drawable="@drawable/setting_invest_button_unenable" android:state_enabled="false"/>
+    <item android:drawable="@drawable/setting_invest_button_normal" android:state_enabled="true"/>
+    <item android:drawable="@drawable/setting_invest_button_normal"/> <!-- default -->
+</selector>
+
+Color: 色值.
+    color不是只能定义在color.xml里面,他可以定义在任意的drawable.xml中
+   只是一般不这么用
+
+transition:过度
+<?xml version="1.0" encoding="utf-8"?>
+<transition xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_launcher"/>
+    <item android:drawable="@drawable/icon_home"/>
+</transition>
+
+
+clip:剪裁
+<?xml version="1.0" encoding="UTF-8"?>
+<clip xmlns:android="http://schemas.android.com/apk/res/android"
+      android:drawable="@drawable/ic_launcher"
+      android:clipOrientation="vertical"
+      android:gravity="top">
+</clip>
+
+场景:遮盖的东西一点一点出来的效果
+
+
+shape:形状
+
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" > <!-- Specify a gradient for the background -->
+    <gradient
+        android:angle="180"
+        android:centerColor="#FFFFFF"
+        android:endColor="#55000066"
+        android:startColor="#55000066" /> <!-- Specify a dark blue border -->
+    <stroke
+        android:dashGap="4dp"
+        android:dashWidth="3dp"
+        android:width="2dp"
+        android:color="@color/lightgrayc7c5c5" /> <!-- Specify the margins that all content inside the drawable must adhere to -->
+    <padding
+        android:bottom="5dp"
+        android:left="5dp"
+        android:right="5dp"
+        android:top="5dp" />
+
+    <corners
+        android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp" />
+
+</shape>
+
+
+scale:缩放
+
+<?xml version="1.0" encoding="utf-8"?>
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+       android:scaleWidth="50%"
+       android:scaleHeight="50%"
+       android:drawable="@drawable/ic_launcher"
+       android:scaleGravity="center_vertical|center_horizontal">
+</scale>
